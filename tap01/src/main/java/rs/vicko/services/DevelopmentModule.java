@@ -1,6 +1,5 @@
 package rs.vicko.services;
 
-import java.io.IOException;
 
 import org.apache.tapestry5.*;
 import org.apache.tapestry5.ioc.MappedConfiguration;
@@ -11,7 +10,6 @@ import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.RequestFilter;
 import org.apache.tapestry5.services.RequestHandler;
 import org.apache.tapestry5.services.Response;
-import org.slf4j.Logger;
 
 /**
  * This module is automatically included as part of the Tapestry IoC Registry if <em>tapestry.execution-mode</em>
