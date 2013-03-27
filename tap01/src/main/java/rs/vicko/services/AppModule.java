@@ -2,10 +2,14 @@ package rs.vicko.services;
 
 import java.io.IOException;
 
+import org.apache.shiro.realm.Realm;
+import org.apache.shiro.web.mgt.WebSecurityManager;
 import org.apache.tapestry5.*;
+import org.apache.tapestry5.ioc.Configuration;
 import org.apache.tapestry5.ioc.MappedConfiguration;
 import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
+import org.apache.tapestry5.ioc.annotations.Contribute;
 import org.apache.tapestry5.ioc.annotations.Local;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.RequestFilter;
@@ -114,4 +118,17 @@ public class AppModule
 
         configuration.add("Timing", filter);
     }
+    
+    
+	@Contribute(WebSecurityManager.class)
+	public static void addRealms(Configuration<Realm> configuration)
+	{
+		Realm realm = new TapRealm();
+		configuration.add(realm);
+
+		// ActiveDirectoryRealm activeDirectoryRealm = new
+		// ActiveDirectoryRealm();
+		// activeDirectoryRealm.setUrl("ldap://192.168.1.5:389");
+		// configuration.add(activeDirectoryRealm);
+	}
 }
