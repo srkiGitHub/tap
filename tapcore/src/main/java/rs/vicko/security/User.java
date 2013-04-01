@@ -10,7 +10,6 @@ public class User
 	public User()
 	{
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public User(int id, String fullName, String username, String password)
