@@ -13,7 +13,7 @@ public class UsersTest
 		Users users = new UsersImpl();
 		User user = users.getUser(1);
 		
-		logger.debug(String.format("User id=1 ids %s", user.getFullName()));
+		logger.debug(String.format("User id=1 is %s", user.getFullName()));
 		
 	}
 }
