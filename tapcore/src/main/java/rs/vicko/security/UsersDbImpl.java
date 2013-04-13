@@ -26,4 +26,18 @@ public class UsersDbImpl extends JdbcDaoSupport implements UsersDb
 		return users.get(0);
 	}
 
+	public User getUser(String username)
+	{
+		String sql = ResourceHelper.getResourceText("/sql/getUserByUsername.sql");
+		logger.debug(String.format("get usr  by username, sql = \n%s", sql));
+
+		List<User> users = getJdbcTemplate().query(sql, new Object[] { username }, new UserRowMapper());
+		if (users.size() == 0)
+		{
+			return null;
+		}
+
+		return users.get(0);
+	}
+
 }

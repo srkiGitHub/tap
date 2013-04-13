@@ -1,0 +1,1 @@
+select id, full_name, username, password from users where username = ?

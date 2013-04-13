@@ -18,6 +18,17 @@ public class UsersTest
 	}
 
 	@Test
+	public void testGetUserByUsername()
+	{
+		Users users = new UsersImpl();
+		User user = users.getUser("sasa");
+
+		logger.debug(String.format("User with username sasa is %s", user.getFullName()));
+
+	}
+
+	
+	@Test
 	public void testGeneratePasswordHash()
 	{
 		Users users = new UsersImpl();

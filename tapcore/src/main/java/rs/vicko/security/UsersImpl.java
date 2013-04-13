@@ -23,8 +23,7 @@ public class UsersImpl implements Users
 
 	public User getUser(String username)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return usersDb.getUser(username)  ;
 	}
 
 	public String generatePasswordHash(String password)
