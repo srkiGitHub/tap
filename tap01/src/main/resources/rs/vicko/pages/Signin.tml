@@ -1,0 +1,8 @@
+<html t:type="layout" title="Loging page title"
+      t:sidebarTitle="Loging page sidebar"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+<body>
+
+</body>
+</html>
