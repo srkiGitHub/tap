@@ -6,6 +6,7 @@ import org.apache.tapestry5.annotations.*;
 import org.apache.tapestry5.ioc.annotations.*;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.Session;
+import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.SymbolConstants;
 import org.slf4j.Logger;
@@ -52,6 +53,18 @@ public class Layout
 	private Request request;
 	
 
+	@Inject
+	private JavaScriptSupport javaScriptSupport;
+	
+
+	public void setupRender()
+	{
+		javaScriptSupport.addScript("Menu.init('menu', {'orientation': Menu.HORIZONTAL, 'hidePause': 0.1});");
+	}
+	
+	
+	
+	
 	public String getClassForPageName()
 	{
 		return resources.getPageName().equalsIgnoreCase(pageName) ? "current_page_item" : null;

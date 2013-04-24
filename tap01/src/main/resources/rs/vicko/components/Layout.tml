@@ -8,22 +8,48 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<title>${title}</title>
+		<link href="${context:layout/reset.css}" rel="stylesheet" type="text/css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="${context:layout/fluidgrid-ie.css}" 
+			type="text/css" media="screen" /><![endif] -->
+		<link rel="stylesheet	" href="${context:layout/fluidgrid.css}"
+			type="text/css" media="screen" />
+		<link href="${context:layout/layout.css}" rel="stylesheet" type="text/css" />
+		<!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ 
+			- Enables media queries in some unsupported browsers -->
+		<script type="text/javascript" src="${context:layout/css3-mediaqueries.js}"></script>
+		<script type="text/javascript" src="${context:layout/menu.js}"></script>
+
+		<script type="text/javascript">
+			function infobarResize()
+			{
+
+			h = $('infobar-inner').getHeight()+'px';
+			$('main').setStyle({marginTop: h });
+			}
+
+		</script>
+
 	</head>
 	<body>
+	<div id="wrapper" class="container">
 		<!-- start header -->
-		<div class="header">
-			<div class="logo">
-				<h1>
-					<t:pagelink page="index">rs.vicko:tap01</t:pagelink>
-                    &nbsp;
-					version ${appVersion}
-				</h1>
+		<div id="header" class="row">
+			<div id="header-logo" class="threecol">
+				<img title="Title"/>
 			</div>
-			<div class="menu">
-				<ul>
+			<div id="header-nav" class="ninecol last">
+				<ul id="menu">
 					<li t:type="loop" source="pageNames" value="pageName"
 						class="prop:classForPageName">
 						<t:pagelink page="prop:pageName">${pageName}</t:pagelink>
+					</li>
+					<li><a href="#" onclick="infobarResize();">menu</a>
+						<ul>
+							<li><t:pagelink page="index">menu1</t:pagelink></li>
+							<li><t:pagelink page="index">menu2</t:pagelink></li>
+							<li><t:pagelink page="index">menu3</t:pagelink></li>
+						</ul>
 					</li>
 
 					<li>
@@ -41,54 +67,31 @@
 		</div>
 		<!-- end header -->
 		<!-- start page -->
-		<div class="page">
-			<!-- start sidebar -->
-			<div class="sidebar">
-				<ul>
-					<li class="search" style="background: none;">
-					</li>
-					<li>
-						<t:alerts />
-					</li>
-					<li t:type="if" test="sidebar">
-						<h2>${sidebarTitle}</h2>
-
-						<div class="sidebar-content">
-							<t:delegate to="sidebar" />
-						</div>
-					</li>
-				</ul>
+		<div id="header-title" class="row">
+			<div class="threecol">&nbsp;</div>
+			<div class="ninecol last">
+				<h1>${title}</h1>
 			</div>
-			<!-- end sidebar -->
-			<!-- start content -->
-			<div class="content">
-				<div class="post">
-					<div class="title">
-						<h2>${title}</h2>
-					</div>
-					<div class="entry">
+		</div>
+		<div id="infobar" class="row">
+			<div class="twelvecol last">
+				<div id="infobar-inner" ><t:alerts /></div>
+			</div>
+		</div>
+		<div id="main" class="row">
+			<div class="twelvecol last">
+				<div id="main-wrapper">
+					<div id="main-inner">
 						<t:body />
 					</div>
 				</div>
 			</div>
-			<!-- end content -->
-			<br style="clear: both;" />
-		</div>
-		<!-- end page -->
+		</div>		<!-- end page -->
 		<!-- start footer -->
-		<div class="footer">
-			<p class="legal">
-                &copy;2012
-				rs.vicko. All Rights Reserved.
-                &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-				Design by
-				<a href="http://www.freecsstemplates.org/">Free CSS Templates</a>
-                &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-				Icons by
-				<a href="http://famfamfam.com/">FAMFAMFAM</a>
-				.
-			</p>
+		<div id="footer-wrapper" class="row">
+			<div id="footer" class="twelvecol last">Copyright Vicko. All Rights Reserved.</div>
 		</div>
 		<!-- end footer -->
+    </div>
 	</body>
 </html>
