@@ -51,20 +51,15 @@ public class Layout
 
 	@Inject
 	private Request request;
-	
 
 	@Inject
 	private JavaScriptSupport javaScriptSupport;
-	
 
 	public void setupRender()
 	{
-		javaScriptSupport.addScript("Menu.init('menu', {'orientation': Menu.HORIZONTAL, 'hidePause': 0.1});");
+		//javaScriptSupport.addScript("Menu.init('menu', {'orientation': Menu.HORIZONTAL, 'hidePause': 0.1});");
 	}
-	
-	
-	
-	
+
 	public String getClassForPageName()
 	{
 		return resources.getPageName().equalsIgnoreCase(pageName) ? "current_page_item" : null;
@@ -77,12 +72,12 @@ public class Layout
 
 	Object onActionFromLogoutLink()
 	{
-		logger.info( "User is logging out.");
-//		Session session = request.getSession(false);
-//		if (session != null)
-//		{
-//			session.invalidate();
-//		}
+		logger.info("User is logging out.");
+		//		Session session = request.getSession(false);
+		//		if (session != null)
+		//		{
+		//			session.invalidate();
+		//		}
 		SecurityUtils.getSubject().logout();
 		return Signin.class;
 	}

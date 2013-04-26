@@ -8,90 +8,315 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<title>${title}</title>
-		<link href="${context:layout/reset.css}" rel="stylesheet" type="text/css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="${context:layout/fluidgrid-ie.css}" 
-			type="text/css" media="screen" /><![endif] -->
-		<link rel="stylesheet	" href="${context:layout/fluidgrid.css}"
-			type="text/css" media="screen" />
-		<link href="${context:layout/layout.css}" rel="stylesheet" type="text/css" />
-		<!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ 
-			- Enables media queries in some unsupported browsers -->
-		<script type="text/javascript" src="${context:layout/css3-mediaqueries.js}"></script>
-		<script type="text/javascript" src="${context:layout/menu.js}"></script>
+		<link rel="stylesheet" href="layout/layout.css" type="text/css" />
 
-		<script type="text/javascript">
-			function infobarResize()
-			{
+		<link rel="stylesheet" href="css/superfish.css" media="screen" />
 
-			h = $('infobar-inner').getHeight()+'px';
-			$('main').setStyle({marginTop: h });
-			}
+		<script src="js/hoverIntent.js"></script>
+		<script src="js/superfish.js"></script>
+
+
+		<script>
+
+			(function($){ //create closure so we can safely use $ as alias	for jQuery
+
+			$(document).ready(function(){
+
+			// initialise plugin
+			var	example = $('#menu').superfish({
+			//add options here if required
+			});
+
+			//
+			buttons to demonstrate Superfish's public methods
+			$('.destroy').on('click', function(){
+			example.superfish('destroy');
+			});
+
+			$('.init').on('click', function(){
+			example.superfish();
+			});
+
+			$('.open').on('click', function(){
+			example.children('li:first').superfish('show');
+			});
+
+			$('.close').on('click', function(){
+			example.children('li:first').superfish('hide');
+			});
+			});
+
+			})(jQuery);
 
 		</script>
 
 	</head>
 	<body>
-	<div id="wrapper" class="container">
-		<!-- start header -->
-		<div id="header" class="row">
-			<div id="header-logo" class="threecol">
-				<img title="Title"/>
-			</div>
-			<div id="header-nav" class="ninecol last">
-				<ul id="menu">
-					<li t:type="loop" source="pageNames" value="pageName"
-						class="prop:classForPageName">
-						<t:pagelink page="prop:pageName">${pageName}</t:pagelink>
-					</li>
-					<li><a href="#" onclick="infobarResize();">menu</a>
-						<ul>
-							<li><t:pagelink page="index">menu1</t:pagelink></li>
-							<li><t:pagelink page="index">menu2</t:pagelink></li>
-							<li><t:pagelink page="index">menu3</t:pagelink></li>
-						</ul>
-					</li>
+		<div id="wrapper" class="container">
+			<!-- start header -->
+			<div id="header" class="row">
+				<div id="header-logo" class="threecol">
+					<img title="Title" />
+				</div>
+				<div id="header-nav" class="ninecol last">
 
-					<li>
-						<t:security.notAuthenticated>
-							<t:pageLink page="Signin">${message:login}</t:pageLink>
-						</t:security.notAuthenticated>
-						<t:security.authenticated>
-							<t:actionlink t:id="logoutLink" id="logoutLink">${message:logout}
-							</t:actionlink>
-						</t:security.authenticated>
-					</li>
-				</ul>
+					<ul class="sf-menu" id="example">
+						<li class="current">
+							<a href="followed.html">menu item 1</a>
+							<ul>
+								<li>
+									<a href="followed.html">menu item</a>
+								</li>
+								<li class="current">
+									<a href="followed.html">long menu item sets sub width</a>
+									<ul>
+										<li class="current">
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="followed.html">menu item</a>
+									<ul>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="followed.html">menu item</a>
+									<ul>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="followed.html">menu item 2</a>
+						</li>
+						<li>
+							<a href="followed.html">menu item 3</a>
+							<ul>
+								<li>
+									<a href="followed.html">menu item</a>
+									<ul>
+										<li>
+											<a href="followed.html">short</a>
+										</li>
+										<li>
+											<a href="followed.html">short</a>
+										</li>
+										<li>
+											<a href="followed.html">short</a>
+										</li>
+										<li>
+											<a href="followed.html">short</a>
+										</li>
+										<li>
+											<a href="followed.html">short</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="followed.html">menu item</a>
+									<ul>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="followed.html">menu item</a>
+									<ul>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="followed.html">menu item</a>
+									<ul>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="followed.html">menu item</a>
+									<ul>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+										<li>
+											<a href="followed.html">menu item</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="followed.html">menu item 4</a>
+						</li>
+						<li t:type="loop" source="pageNames" value="pageName" class="current"> 
+							<t:pagelink page="prop:pageName">${pageName}</t:pagelink> 
+						</li>
+						<li class="current">
+							<t:security.notAuthenticated>
+								<t:pageLink page="Signin">${message:login}</t:pageLink>
+							</t:security.notAuthenticated>
+							<t:security.authenticated>
+								<t:actionlink t:id="logoutLink" id="logoutLink">${message:logout}
+								</t:actionlink>
+							</t:security.authenticated>
+						</li>
+					</ul>
 
+<!--  
+					<ul id="menu" class="sf-menu">
+						<li t:type="loop" source="pageNames" value="pageName" class="current"> 
+							<t:pagelink page="prop:pageName">${pageName}</t:pagelink> </li>
+
+						<li class="current">
+							<a href="#">menu</a>
+							<ul>
+								<li class="current">
+									<t:pagelink page="index">menu1</t:pagelink>
+								</li>
+								<li>
+									<t:pagelink page="index">menu2</t:pagelink>
+								</li>
+								<li>
+									<t:pagelink page="index">menu3</t:pagelink>
+								</li>
+							</ul>
+						</li>
+
+						<li class="current">
+							<t:security.notAuthenticated>
+								<t:pageLink page="Signin">${message:login}</t:pageLink>
+							</t:security.notAuthenticated>
+							<t:security.authenticated>
+								<t:actionlink t:id="logoutLink" id="logoutLink">${message:logout}
+								</t:actionlink>
+							</t:security.authenticated>
+						</li>
+					</ul>
+-->
+				</div>
 			</div>
-		</div>
-		<!-- end header -->
-		<!-- start page -->
-		<div id="header-title" class="row">
-			<div class="threecol">&nbsp;</div>
-			<div class="ninecol last">
-				<h1>${title}</h1>
+			<!-- end header -->
+			<!-- start page -->
+			<div id="header-title" class="row">
+				<div class="ninecol last">
+					<h1>${title}</h1>
+				</div>
 			</div>
-		</div>
-		<div id="infobar" class="row">
-			<div class="twelvecol last">
-				<div id="infobar-inner" ><t:alerts /></div>
-			</div>
-		</div>
-		<div id="main" class="row">
-			<div class="twelvecol last">
-				<div id="main-wrapper">
-					<div id="main-inner">
-						<t:body />
+			<div id="infobar" class="row">
+				<div class="twelvecol last">
+					<div id="infobar-inner">
+						<t:alerts />
 					</div>
 				</div>
 			</div>
-		</div>		<!-- end page -->
-		<!-- start footer -->
-		<div id="footer-wrapper" class="row">
-			<div id="footer" class="twelvecol last">Copyright Vicko. All Rights Reserved.</div>
+			<div id="main" class="row">
+				<div class="twelvecol last">
+					<div id="main-wrapper">
+						<div id="main-inner">
+							<t:body />
+						</div>
+					</div>
+				</div>
+			</div>		<!-- end page -->
+			<!-- start footer -->
+			<div id="footer-wrapper" class="row">
+				<div id="footer" class="twelvecol last">Copyright Vicko. All Rights Reserved.
+				</div>
+			</div>
+			<!-- end footer -->
 		</div>
-		<!-- end footer -->
-    </div>
 	</body>
 </html>
