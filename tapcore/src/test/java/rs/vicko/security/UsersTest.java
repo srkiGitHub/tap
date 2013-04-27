@@ -41,7 +41,7 @@ public class UsersTest
 	public void testLogin()
 	{
 		Users users = new UsersImpl();
-		User user = users.getUser(1);
+		User user = users.getUser("sasa");
 
 		users.login(user, "sasa");
 		logger.debug("User logged");

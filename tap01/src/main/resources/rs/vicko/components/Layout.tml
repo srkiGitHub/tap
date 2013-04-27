@@ -53,13 +53,13 @@
 
 	</head>
 	<body>
-		<div id="wrapper" class="container">
+		<div id="wrapper" >
 			<!-- start header -->
-			<div id="header" class="row">
+			<div id="header" >
 				<div id="header-logo" class="threecol">
-					<img title="Title" />
+					<img src="img/logo.jpg" />
 				</div>
-				<div id="header-nav" class="ninecol last">
+				<div id="header-nav" >
 
 					<ul class="sf-menu" id="example">
 						<li class="current">
