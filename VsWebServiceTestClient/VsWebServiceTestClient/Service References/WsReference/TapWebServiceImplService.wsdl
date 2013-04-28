@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://tapws.vicko.rs/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="TapWebServiceImplService" targetNamespace="http://tapws.vicko.rs/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/tapws/tapWebService?xsd=1" namespace="http://tapws.vicko.rs/" />
+    </xsd:schema>
+  </types>
+  <message name="sayHello">
+    <part name="parameters" element="tns:sayHello" />
+  </message>
+  <message name="sayHelloResponse">
+    <part name="parameters" element="tns:sayHelloResponse" />
+  </message>
+  <message name="getUserbyName">
+    <part name="parameters" element="tns:getUserbyName" />
+  </message>
+  <message name="getUserbyNameResponse">
+    <part name="parameters" element="tns:getUserbyNameResponse" />
+  </message>
+  <portType name="TapWebService">
+    <operation name="sayHello">
+      <input wsam:Action="http://tapws.vicko.rs/TapWebService/sayHelloRequest" message="tns:sayHello" />
+      <output wsam:Action="http://tapws.vicko.rs/TapWebService/sayHelloResponse" message="tns:sayHelloResponse" />
+    </operation>
+    <operation name="getUserbyName">
+      <input wsam:Action="http://tapws.vicko.rs/TapWebService/getUserbyNameRequest" message="tns:getUserbyName" />
+      <output wsam:Action="http://tapws.vicko.rs/TapWebService/getUserbyNameResponse" message="tns:getUserbyNameResponse" />
+    </operation>
+  </portType>
+  <binding name="TapWebServiceImplPortBinding" type="tns:TapWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="sayHello">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getUserbyName">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="TapWebServiceImplService">
+    <port name="TapWebServiceImplPort" binding="tns:TapWebServiceImplPortBinding">
+      <soap:address location="http://localhost:8080/tapws/tapWebService" />
+    </port>
+  </service>
+</definitions>
