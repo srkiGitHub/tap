@@ -15,39 +15,40 @@ import org.apache.tapestry5.ioc.annotations.Symbol;
  */
 public class Index
 {
-    @Property
-    @Inject
-    @Symbol(SymbolConstants.TAPESTRY_VERSION)
-    private String tapestryVersion;
+	@Property
+	@Inject
+	@Symbol(SymbolConstants.TAPESTRY_VERSION)
+	private String tapestryVersion;
 
-    @InjectComponent
-    private Zone zone;
+	@InjectComponent
+	private Zone zone;
 
-    @Persist
-    @Property
-    private int clickCount;
+	@Persist
+	@Property
+	private int clickCount;
 
-    @Inject
-    private AlertManager alertManager;
+	@Inject
+	private AlertManager alertManager;
 
-    public Date getCurrentTime()
-    {
-        return new Date();
-    }
+	public Date getCurrentTime()
+	{
+		return new Date();
+	}
 
-    void onActionFromIncrement()
-    {
-        alertManager.info("Increment clicked");
+	void onActionFromIncrement()
+	{
+		alertManager.info("Increment clicked");
 
-        clickCount++;
-    }
+		clickCount++;
+	}
 
-    Object onActionFromIncrementAjax()
-    {
-        clickCount++;
+	Object onActionFromIncrementAjax()
+	{
+		clickCount++;
 
-        alertManager.info("Increment (via Ajax) clicked");
+		alertManager.info("Increment (via Ajax) clicked");
 
-        return zone;
-    }
+		return zone;
+	}
+
 }

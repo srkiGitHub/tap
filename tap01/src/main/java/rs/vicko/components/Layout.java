@@ -15,6 +15,7 @@ import org.apache.tapestry5.SymbolConstants;
 import org.slf4j.Logger;
 
 import rs.vicko.pages.Signin;
+import rs.vicko.security.User;
 
 /**
  * Layout component for pages of application tap01.
@@ -83,6 +84,11 @@ public class Layout
 		//		}
 		SecurityUtils.getSubject().logout();
 		return Signin.class;
+	}
+
+	public String getUsername()
+	{
+		return ((User) SecurityUtils.getSubject().getPrincipals().getPrimaryPrincipal()).getFullName();
 	}
 
 }

@@ -62,185 +62,6 @@
 				<div id="header-nav" >
 
 					<ul class="sf-menu" id="example">
-						<li class="current">
-							<a href="followed.html">menu item 1</a>
-							<ul>
-								<li>
-									<a href="followed.html">menu item</a>
-								</li>
-								<li class="current">
-									<a href="followed.html">long menu item sets sub width</a>
-									<ul>
-										<li class="current">
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<a href="followed.html">menu item</a>
-									<ul>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<a href="followed.html">menu item</a>
-									<ul>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a href="followed.html">menu item 2</a>
-						</li>
-						<li>
-							<a href="followed.html">menu item 3</a>
-							<ul>
-								<li>
-									<a href="followed.html">menu item</a>
-									<ul>
-										<li>
-											<a href="followed.html">short</a>
-										</li>
-										<li>
-											<a href="followed.html">short</a>
-										</li>
-										<li>
-											<a href="followed.html">short</a>
-										</li>
-										<li>
-											<a href="followed.html">short</a>
-										</li>
-										<li>
-											<a href="followed.html">short</a>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<a href="followed.html">menu item</a>
-									<ul>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<a href="followed.html">menu item</a>
-									<ul>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<a href="followed.html">menu item</a>
-									<ul>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<a href="followed.html">menu item</a>
-									<ul>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-										<li>
-											<a href="followed.html">menu item</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a href="followed.html">menu item 4</a>
-						</li>
 						<li t:type="loop" source="pageNames" value="pageName" class="current"> 
 							<t:pagelink page="prop:pageName">${pageName}</t:pagelink> 
 						</li>
@@ -249,43 +70,22 @@
 								<t:pageLink page="Signin">${message:login}</t:pageLink>
 							</t:security.notAuthenticated>
 							<t:security.authenticated>
-								<t:actionlink t:id="logoutLink" id="logoutLink">${message:logout}
-								</t:actionlink>
+							<li>
+								<a>${username}</a>
+									<ul>
+										<li>
+											<a href="followed.html">Change password</a>
+										</li>
+										<li>
+											<t:actionlink t:id="logoutLink" id="logoutLink">${message:logout}
+											</t:actionlink>
+										</li>
+									</ul>
+							</li>
 							</t:security.authenticated>
 						</li>
 					</ul>
 
-<!--  
-					<ul id="menu" class="sf-menu">
-						<li t:type="loop" source="pageNames" value="pageName" class="current"> 
-							<t:pagelink page="prop:pageName">${pageName}</t:pagelink> </li>
-
-						<li class="current">
-							<a href="#">menu</a>
-							<ul>
-								<li class="current">
-									<t:pagelink page="index">menu1</t:pagelink>
-								</li>
-								<li>
-									<t:pagelink page="index">menu2</t:pagelink>
-								</li>
-								<li>
-									<t:pagelink page="index">menu3</t:pagelink>
-								</li>
-							</ul>
-						</li>
-
-						<li class="current">
-							<t:security.notAuthenticated>
-								<t:pageLink page="Signin">${message:login}</t:pageLink>
-							</t:security.notAuthenticated>
-							<t:security.authenticated>
-								<t:actionlink t:id="logoutLink" id="logoutLink">${message:logout}
-								</t:actionlink>
-							</t:security.authenticated>
-						</li>
-					</ul>
--->
 				</div>
 			</div>
 			<!-- end header -->
