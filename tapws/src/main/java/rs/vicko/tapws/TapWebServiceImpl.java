@@ -4,7 +4,6 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 
 import rs.vicko.security.User;
-import rs.vicko.security.Users;
 import rs.vicko.security.UsersImpl;
 
 @WebService(endpointInterface = "rs.vicko.tapws.TapWebService")

@@ -10,7 +10,8 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 
 import org.tynamo.security.services.SecurityService;
 
-public class Signin {
+public class Signin
+{
 
 	@Property
 	@Persist
@@ -18,19 +19,18 @@ public class Signin {
 
 	@Property
 	private String password;
-	
+
 	@Inject
 	private SecurityService securityService;
-	
+
 	@Inject
 	private AlertManager alertManager;
 
-    
 	public String onActionFromLoginForm()
 	{
 		Subject currentUser = securityService.getSubject();
 		//alertManager.success(currentUser.toString());
-		
+
 		UsernamePasswordToken token = new UsernamePasswordToken(username, password);
 
 		try
@@ -43,8 +43,6 @@ public class Signin {
 			return null;
 		}
 
-		
-		
 		return "Index";
 	}
 }

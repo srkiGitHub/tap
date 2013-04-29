@@ -3,7 +3,6 @@ package rs.vicko.services;
 import java.util.HashSet;
 
 import org.apache.log4j.Logger;
-import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
@@ -13,7 +12,6 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
-
 import rs.vicko.security.User;
 import rs.vicko.security.Users;
 import rs.vicko.security.UsersImpl;
@@ -21,9 +19,8 @@ import rs.vicko.security.UsersImpl;
 public class TapRealm extends AuthorizingRealm
 {
 
+	private static Logger logger = Logger.getLogger(TapRealm.class);
 
-    private static Logger logger = Logger.getLogger(TapRealm.class);
-	
 	TapRealm()
 	{
 		setCredentialsMatcher(new TapCredentialsMatcher());
@@ -37,7 +34,7 @@ public class TapRealm extends AuthorizingRealm
 	}
 
 	@Override
-	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException
+	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token)
 	{
 
 		UsernamePasswordToken upToken = (UsernamePasswordToken) token;

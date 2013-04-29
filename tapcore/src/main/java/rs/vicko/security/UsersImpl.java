@@ -23,12 +23,12 @@ public class UsersImpl implements Users
 
 	public User getUser(String username)
 	{
-		return usersDb.getUser(username)  ;
+		return usersDb.getUser(username);
 	}
 
 	public String generatePasswordHash(String password)
 	{
-		
+
 		return HashHelper.calculateHash(password);
 	}
 
@@ -38,8 +38,7 @@ public class UsersImpl implements Users
 		{
 			throw new ApplicationException("Login error");
 		}
-				
-		
+
 	}
 
 }
